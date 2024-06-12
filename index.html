@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index</title>
+</head>
+<body>
+  <div style="width: 100%; height: 100vh;" id="root">
+    这是一个首页 <button @click="handleClick" >outer</button>
+
+    {{title}}
+    <!-- {{currentTab}} -->
+
+    <!-- <div id="vueappp" >
+      {{currentTab}}
+      <button @click="handleInnerClick" >inner</button>
+      <button-counter />
+    </div> -->
+    <button-counter />
+
+    <!-- <button @click="handleTab('month')"> Month </button>
+    <button @click="handleTab('year')"> Year </button> -->
+
+    <!-- <iframe src="./test.html" style="width: 100%; height: 10vh"  frameborder="0"></iframe>
+    <iframe src="./upgrade.html" style="width: 100%; height: 80vh"  frameborder="0"></iframe> -->
+  
+  </div>
+</body>
+<script src="./js/vue2.js"></script>
+<script>
+  /* component 需要在Vue 挂载前面 */
+    Vue.component('button-counter', {
+      data: function () {
+        return {
+          currentTab: 'cccc'
+        }
+      },
+      methods: {
+        handleInnerClick() {
+        console.log('IIIIIIIIIII')
+      },
+      },
+      template: '<div id="vueappp" >{{currentTab}} <button @click="handleInnerClick" >inner</button></div>'
+    });
+</script>
+<script>
+  var app = new Vue({
+    el: '#root',
+    data: function () {
+      return {
+        title: '这是 test 页面',
+        currentTab: 'tttt'
+      }
+    },
+    methods: {
+      handleClick() {
+        console.log('ccccccccccc')
+      },
+      handleInnerClick() {
+        console.log('9999')
+      }
+    }
+})
+</script>
+</html>
